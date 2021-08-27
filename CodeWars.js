@@ -34,27 +34,24 @@ function maskify(cc) {
 function alphabetPosition(text) {
     text = text.toUpperCase();
 
-    // remove backspaces and none numbers
-    // text.replace(/ /g,'');
-    text = text.replace(/[\W_]+/g, '');
-
     length = text.length;
     newtext = "";
 
     for (i = 0; i < length; i++) {
-        if (i > 0 && i < length) {
-            newtext = newtext + " ";
-        }
         asciiCode = text.charCodeAt(i);
-        newtext = newtext + (asciiCode - 64);
+        if (asciiCode >= 65 && asciiCode <= 90) {
+            newtext = newtext + (asciiCode - 64) + " ";
+        }
     }
-    return newtext;
+    return newtext.substring(0, newtext.length - 1);
 }
 
 
 // will raise an error if there is an error.
 (function alphabetPositionTest() {
     var assert = require('assert');
+    console.log(alphabetPosition("7ap*<-#)"));
     assert.equal(alphabetPosition("The sunset sets at twelve o' clock."), "20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11", "ERROR!")
     assert.equal(alphabetPosition("The narwhal bacons at midnight."), "20 8 5 14 1 18 23 8 1 12 2 1 3 15 14 19 1 20 13 9 4 14 9 7 8 20", "ERROR!")
 })();
+
