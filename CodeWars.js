@@ -55,3 +55,50 @@ function alphabetPosition(text) {
     assert.equal(alphabetPosition("The narwhal bacons at midnight."), "20 8 5 14 1 18 23 8 1 12 2 1 3 15 14 19 1 20 13 9 4 14 9 7 8 20", "ERROR!")
 })();
 
+//
+//
+// Implement a function that adds two numbers together and returns their sum in binary.
+// The conversion can be done before, or after the addition.
+//
+//     The binary number returned should be a string.
+//
+
+function addBinary(a, b) {
+    result = a + b;
+    return result.toString(2);
+}
+
+(function addBinaryTest() {
+    console.log(addBinary(1, 2));
+})();
+
+//
+// You might know some pretty large perfect squares. But what about the NEXT one?
+//
+//     Complete the findNextSquare method that finds the next integral perfect
+//     square after the one passed as a parameter. Recall that an integral
+//     perfect square is an integer n such that sqrt(n) is also an integer.
+//
+//     If the parameter is itself not a perfect square then -1 should be returned.
+//     You may assume the parameter is non-negative.
+
+function findNextSquare(sq) {
+    sqrtval = Math.sqrt(sq);
+    if (sqrtval === Math.floor(sqrtval)) {
+        return Math.pow(sqrtval + 1, 2);
+    }
+    // Return the next square if sq is a perfect square, -1 otherwise
+    else {
+        return -1;
+    }
+}
+
+(function findNextSquareTest() {
+    console.log(findNextSquare(42));
+})();
+
+
+// thought about it and wondered
+(function testconcat() {
+    console.log("1" + "1");
+})();
